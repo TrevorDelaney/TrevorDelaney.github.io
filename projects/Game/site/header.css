@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    background-color: white;
+}
+
+body{
+    width: 98%;
+    max-width: 1024px;
+    min-width: 645px;
+    margin: auto;
+    height : 70%; 
+    min-height: 700px;
+    background-color: #99EEAA;
+    border: 1px solid black;
+}
+
+header{
+    margin-bottom: 2% 2% 0 2%;
+    padding: .35%;
+    background: linear-gradient(70deg, lightgreen 0%, green 70%, darkgreen 100%);
+}
+
+header h1{
+    font-size: 200%;
+    margin: .5% 1% .1% 2%;
+}
+
+header h2{
+    font-size: 130%;
+    color: darkgray;
+    margin: .1% 1% .2% 3%;
+}
+
+#menu ul{
+    list-style: none;
+}
+
+#menu li{
+    width: 50%;
+    float: left;
+    background-color: gray;
+}
+
+#menu a{
+    display: block;
+    width: 96%;
+    
+    padding: 2% 1%;
+    margin: .5% 1%;
+    background-color: lightgray;
+    text-align: center;
+}
+
+main{
+    clear: both;
+    padding: 1% .5%;
+}
+
+main section{
+    height: 75%;
+    min-height: 480px;
+}
+
+footer{
+    clear: both;
+    border-top: 1px solid black;
+}
+
+footer p{
+    text-align: center;
+    margin: .25em 0;
+    color: #333333;
+    font-size: 90%;
+}
+
+#screen{
+    left: auto;
+    top: 150px;
+}
+
+#myBorder{
+    margin: auto;
+    width : 640px;
+    height : 480px;
+}
+
+@media only screen and (max-height: 700px){
+    #screen{
+        top: 125px;
+    }
+    body{
+        min-height: 648px;
+    }
+}
+
+@media only screen and (max-height: 620px){
+    #screen{
+        top: 48px;
+    }
+    header{
+        display: none;
+    }
+    body{
+        min-height: 600px;
+    }
+}
+
+@media only screen and (max-width: 660px){
+    body{
+        width: 100%;
+    }
+}

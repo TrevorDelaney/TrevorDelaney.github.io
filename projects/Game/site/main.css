@@ -1,0 +1,46 @@
+body{
+    height: auto;
+    min-width: 128px;
+}
+
+main{
+    clear: both;
+    padding: 1% .5%;
+}
+
+section h2{
+    font-size: 130%;
+    text-decoration: underline;
+    padding: 1% 1% 1% 3%;
+}
+
+section p{
+    margin: .5% 1%;
+}
+
+section img{
+    width: 32%;
+    float: right;
+    min-width: 256px;
+}
+
+section dl{
+    margin: 1% 3%;
+}
+
+section dt{
+    display: inline;
+    font-weight: bold;
+}
+
+section dd{
+    display: inline;
+}
+
+footer{
+    clear: both;
+}
+
+#cheater{
+    color: darkred;
+}
