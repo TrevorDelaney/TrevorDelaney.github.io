@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    background-color: white;
+}
+
+body{
+    width: 100%;
+    margin: auto;
+    background-color: #DDFFEE;
+}
+
+/* Header styles: */
+
+header{
+    border-bottom: 2px solid black;
+    background-color: #AAFFBB;
+    padding: 1em;
+}
+
+header h1{
+    text-align: center;
+}
+
+/*Navigation menu styles:*/
+
+nav{
+    position: sticky;
+    top: 0;
+}
+
+nav ul{
+    list-style-type: none;
+    position: relative;
+}
+
+nav li{
+    float: left;
+    width: 33%;
+    background-color: #88EEFF;
+}
+
+nav::after{
+    clear: both;
+}
+
+nav li a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: .5em 0;
+    color: black;
+}
+
+nav li a:hover, nav li a:focus{
+    text-decoration: underline;
+}
+
+.current{
+    font-weight: bolder;
+}
+
+/* Main styles: */
+
+main{
+    margin: 1.5em;
+}
+
+main h2{
+    margin: 2em 0 1em 0;
+    text-align: center;
+}
+
+main p{
+    font-size: 1.2em;
+}
+
+main li{
+    margin: .25em 1em;
+    font-size: 1.2em;
+}
+
+main table::after{
+    clear: both;
+}
+
+main table{
+    width: 100%;
+}
+
+main td{
+    display: block;
+    margin: 3%;
+    padding: 1em;
+    width: 15%;
+    height: 15%;
+    background-color: #77AA99;
+    float: left;
+}
+
+section{
+    margin-top: 1em;
+    float: left;
+    width: 50%;
+}
+
+.list_part{
+    width: 25%;
+    display: block;
+    float: left;
+}
+
+aside{
+    float: right;
+    width: 50%;
+}
+
+aside img{
+    width: 100%;
+    height: 100%;
+}
+
+aside .image{
+    float: left;
+    width: 48%;
+    height: 48%;
+    margin: 1%;
+}
+
+.display{
+    border: 1px solid black;
+    display: none;
+    margin: 1em 2em;
+    padding: .5em;
+    background-color: white;
+}
+
+.display button{
+    padding: .25em 1em;
+}
+
+.display h2{
+    margin: .5em 0;
+    text-align: center;
+}
+
+.display p{
+    font-size: 1.25em;
+}
+
+.display img{
+    width: 40%;
+}
+
+.display_section{
+    width: 60%;
+    display: block;
+    width: 60%;
+    float: left;
+}
+
+main td a{
+    text-decoration: none;
+    color: black;
+}
+
+/* Footer styles: */
+
+footer{
+    clear: both;
+}
