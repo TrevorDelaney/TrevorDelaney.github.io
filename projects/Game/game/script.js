@@ -1,43 +1,21 @@
 /*
     What is this game?
     
-    This game has no name. It is a game with perma-death meaning if you die, you will need to refresh
+    This game has no name. If you lose, you will need to refresh
     your browser to start over. The game has 3 waves followed by a final boss. You can spend stat points
     on upgrades for your character, these upgrades include increases to health, damage and speed.
     
 ------------------------------------------------------
     How do I play?
     
-    Use the controls WASD to move your character around the screen. Use the keys jkli to shoot in 4
+    Use the controls WASD to move your character around the screen. Use the keys JKLI to shoot in 4
     corresponding directions.
-    
-------------------------------------------------------
-    How to insert this game into your projects?
-    
-    To use this program put the following tags inside your html like so:
-    
-        <div id="screen" tabindex="0" style="width : 640px; height : 480px;">
-            <div id="player"></div>
-        </div>
-        
-    along with a defered script element like so:
-    
-        <script src="script.js" defer></script>
-        
-    and a line to the main css used by the game:
-    
-        <link rel="stylesheet" href="main.css">
-        
-    Recommended width and height: (640x480). Feel free to change the values, increasing the size makes the
-    game much easier (example 1024 x 768 = <div id="screen" tabindex="0" style="width : 1024px; height : 768px;">)
-    and decreasing the size makes the game much harder (like 240 x 240). Lowering the size too much can affect
-    the mobile gui negatively. A bigger screen will make the wave after the boss a bit more playable.
     
 -----------------------------------------------------
     Editting some code:
     
     Change cheats to false to disable the ability for the user to cheat. Set setMobile to true to
-    enable mobile gaming gui.
+    enable the mobile gaming gui.
 */
 
 cheats = true;
@@ -107,7 +85,6 @@ var $ = function(id){
 }
 
 var start = function(){
-    
     area.x = parseInt($("screen").style.left.slice(0, -2));
     area.y = parseInt($("screen").style.top.slice(0, -2));
     area.width = parseInt($("screen").style.width.slice(0, -2));

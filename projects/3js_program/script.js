@@ -16,6 +16,11 @@ var rot_angle = 0;
 var counter = 0;
 var top_num = 200;
 
+/*
+The next 4 functions are used to create objects with
+defined meshes.
+Hazard bounces the player when they touch it.
+*/
 function Player(sizex, sizey, sizez, camera, color){
 	this.x = 3;
 	this.y = 3;
@@ -96,25 +101,34 @@ function Hazard(x, y, z, sizex, sizey, sizez, bounce, color){
 var hazards = [];
 
 window.onload = function(){
+	// Create the scene, camera and renderer.
+	width = window.innerWidth * .9;
+	height = window.innerHeight * .9;
 	var scene = new THREE.Scene();
 	var camera = new THREE.PerspectiveCamera(60, 
-		window.innerWidth/window.innerHeight, 0.1, 1000);
+		width/height, 0.1, 1000);
 	var renderer = new THREE.WebGLRenderer();
-	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer.setSize(width, height);
 	document.body.appendChild(renderer.domElement);
 	
 	var player = new Player(1, 1, 1, camera, 0x99FF99);
 	var box = new Item(0, 0, 0, 1, 1, 1, 0xFF4444);
 	var ground = new Block(0, -1, 15, 1, 5, 0xFFFFFF);
+
+	// Create 50 platforms for the player to bounce off.
 	for(var i = 0; i<50; i++){
 		hazards.push(new Hazard(2 + i*8, i, 5, 2, 1, 2, 2.4, 0x444444))
 		hazards.push(new Hazard(6 + i*8, i, 9, 2, 1, 2, 2.4, 0x444444))
 		let item = new Item(4+ i*8, -.5, 7, .5, .5, .5, 0xFF4444)
 		scene.add(item.mesh);
 	}
+
+	// At the end of the 50 platforms is a big extra bouncy cube
 	hazards.push(new Hazard(0 + 50*8, 50, 2, 4, 4, 4, 5, 0x444444));
 
 	player.mesh.position.x = player.x;
+
+	// Add meshes to scene
 	scene.add(player.mesh);
 	scene.add(box.mesh);
 	scene.add(ground.mesh);
@@ -123,7 +137,6 @@ window.onload = function(){
 		scene.add(element.mesh);
 	});
 	
-
 	addEventListener("keydown", keyDown);
 	addEventListener("keyup", keyUp);
 
@@ -137,6 +150,7 @@ window.onload = function(){
 		box.mesh.rotation.x += 0.01;
 		box.mesh.rotation.y += 0.01;
 
+		// Controls player movement and gravity:
 		if (key_a == 1)
 			mx = -1;
 		else if (key_d == 1)
@@ -180,6 +194,8 @@ window.onload = function(){
 			camera.position.x = player.x + camera_offsetx;
 			camera.position.z = player.z + camera_offsetz;
 		}
+
+		// Move hazards if they can move and check collisions with player.
 		hazards.forEach(element => {
 			if (element.mobile == true){
 				element.x += .05;
@@ -192,6 +208,8 @@ window.onload = function(){
 			}
 		});
 		counter += 1;
+
+		// Create mobile hazards at random intervals
 		if (counter > top_num){
 			let new_hazard = new Hazard(-ground.sizex/2, Math.random()*2, (Math.random()*4)-2, 1, 1, 1, 3, 0x444444)
 			hazards.push(new_hazard);
@@ -254,8 +272,4 @@ var keyUp = function(e){
 	if (e.key == "i"){
 		console.log(hazards.length);
 	}
-}
-
-function check_distance(x1, y1, x2, y2){
-	return (Math.abs((x1 - x2) + (y1 - y2)));
 }
